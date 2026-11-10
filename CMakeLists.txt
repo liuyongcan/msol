@@ -19,3 +19,8 @@ if(TARGET OpenMP::OpenMP_CXX)
   target_link_libraries(msol_core PRIVATE OpenMP::OpenMP_CXX)
 endif()
 
+
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+  add_executable(demo demo.cpp)
+  target_link_libraries(demo PRIVATE msol::msol)
+endif()

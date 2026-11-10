@@ -46,3 +46,14 @@ double estimateYawDegrees(const msol::Cloud::ConstPtr& map_cloud,
 ## 论文
 
 Gao, Wang, et al. *Multi-Sector Overlap Loss: A Universal Framework for One-Shot 6DoF Global Localization Across Heterogeneous LiDARs*. IEEE Robotics and Automation Letters, 2025.
+
+## 运行示例
+
+独立构建会生成 `demo` 目标。Windows 上使用 Visual Studio 生成器时，从仓库根目录运行以下命令。
+
+```powershell
+cmake --build build --config Release --target demo
+.\build\Release\demo.exe
+```
+
+使用 Linux 的单配置生成器时，运行 `./build/demo`。示例使用内置点云，无需下载数据。程序生成两个扇区描述子，打印匹配得分和偏航偏移，再用已知旋转将查询点云变换到地图坐标系，打印对齐前后的重叠率。
